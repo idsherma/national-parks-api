@@ -4,6 +4,8 @@
 
         'use strict';
 
+        const apiKey = '9gVorbcG7KE8YhWWg9bIShXVy2PkQpu4WgPrYmSy';
+
         function getDogImage(num) {
             let numParameter = num;
             const URL = 'https://dog.ceo/api/breeds/image/random/';
@@ -44,9 +46,18 @@
             $('form').submit(event => {
                 event.preventDefault();
 
-               let num = $('#dogs').val();
-               getDogImage(num);
+                let maxResultsNum = $('#max-results').val();
 
+
+                let statesArr = [];
+
+                $.each($("input[name='state']:checked"), function() {
+                    statesArr.push($(this).val());
+                });
+
+               console.log(maxResultsNum);
+               console.log("States selected: " + statesArr.join(", "));
+            
             });
         }
 

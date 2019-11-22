@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Dog Generator</title>
-
+  <title>National Parks Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
@@ -11,63 +11,66 @@
 <body>
 
   <div class="container">
-    <h1>🐕 Dog Generator</h1>
-
-    <form id="dog-form">
-      <label for="dogs">How many dogs would you like?</label>
-      <select name="dogs" id="dogs" required="">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3" selected="">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-              <option value="13">13</option>
-              <option value="14">14</option>
-              <option value="15">15</option>
-              <option value="16">16</option>
-              <option value="17">17</option>
-              <option value="18">18</option>
-              <option value="19">19</option>
-              <option value="20">20</option>
-              <option value="21">21</option>
-              <option value="22">22</option>
-              <option value="23">23</option>
-              <option value="24">24</option>
-              <option value="25">25</option>
-              <option value="26">26</option>
-              <option value="27">27</option>
-              <option value="28">28</option>
-              <option value="29">29</option>
-              <option value="30">30</option>
-              <option value="31">31</option>
-              <option value="32">32</option>
-              <option value="33">33</option>
-              <option value="34">34</option>
-              <option value="35">35</option>
-              <option value="36">36</option>
-              <option value="37">37</option>
-              <option value="38">38</option>
-              <option value="39">39</option>
-              <option value="40">40</option>
-              <option value="41">41</option>
-              <option value="42">42</option>
-              <option value="43">43</option>
-              <option value="44">44</option>
-              <option value="45">45</option>
-              <option value="46">46</option>
-              <option value="47">47</option>
-              <option value="48">48</option>
-              <option value="49">49</option>
-              <option value="50">50</option>
-      </select>
-      <button type="submit" class="js-gimme-some-dogs">Show me dogs!</button>
+    <h1>Plan your next vacation</h1>
+    <p>Use the checkboxes below to search for parks for your next vacation.</p>
+    <form id="park-form">
+      <label for="state">State(s):</label>
+        <ul class="state-container">
+            <li><input type="checkbox" name="state" value="AL"><label for="state">Alabama</label></li>
+            <li><input type="checkbox" name="state" value="AK"><label for="state">Alaska</label></li>
+            <li><input type="checkbox" name="state" value="AZ"><label for="state">Arizona</label></li>
+            <li><input type="checkbox" name="state" value="AR"><label for="state">Arkansas</label></li>
+            <li><input type="checkbox" name="state" value="CA"><label for="state">California</label></li>
+            <li><input type="checkbox" name="state" value="CO"><label for="state">Colorado</label></li>
+            <li><input type="checkbox" name="state" value="CT"><label for="state">Connecticut</label></li>
+            <li><input type="checkbox" name="state" value="DC"><label for="state">District of Columbia</label></li>
+            <li><input type="checkbox" name="state" value="DE"><label for="state">Delaware</label></li>
+            <li><input type="checkbox" name="state" value="FL"><label for="state">Florida</label></li>
+            <li><input type="checkbox" name="state" value="GA"><label for="state">Georgia</label></li>
+            <li><input type="checkbox" name="state" value="HI"><label for="state">Hawaii</label></li>
+            <li><input type="checkbox" name="state" value="ID"><label for="state">Idaho</label></li>
+            <li><input type="checkbox" name="state" value="IL"><label for="state">Illinois</label></li>
+            <li><input type="checkbox" name="state" value="IN"><label for="state">Indiana</label></li>
+            <li><input type="checkbox" name="state" value="IA"><label for="state">Iowa</label></li>
+            <li><input type="checkbox" name="state" value="KS"><label for="state">Kansas</label></li>
+            <li><input type="checkbox" name="state" value="KY"><label for="state">Kentucky</label></li>
+            <li><input type="checkbox" name="state" value="LA"><label for="state">Louisiana</label></li>
+            <li><input type="checkbox" name="state" value="ME"><label for="state">Maine</label></li>
+            <li><input type="checkbox" name="state" value="MD"><label for="state">Maryland</label></li>
+            <li><input type="checkbox" name="state" value="MA"><label for="state">Massachusetts</label></li>
+            <li><input type="checkbox" name="state" value="MI"><label for="state">Michigan</label></li>
+            <li><input type="checkbox" name="state" value="MN"><label for="state">Minnesota</label></li>
+            <li><input type="checkbox" name="state" value="MS"><label for="state">Mississippi</label></li>
+            <li><input type="checkbox" name="state" value="MO"><label for="state">Missouri</label></li>
+            <li><input type="checkbox" name="state" value="MT"><label for="state">Montana</label></li>
+            <li><input type="checkbox" name="state" value="NE"><label for="state">Nebraska</label></li>
+            <li><input type="checkbox" name="state" value="NV"><label for="state">Nevada</label></li>
+            <li><input type="checkbox" name="state" value="NH"><label for="state">New Hampshire</label></li>
+            <li><input type="checkbox" name="state" value="NJ"><label for="state">New Jersey</label></li>
+            <li><input type="checkbox" name="state" value="NM"><label for="state">New Mexico</label></li>
+            <li><input type="checkbox" name="state" value="NY"><label for="state">New York</label></li>
+            <li><input type="checkbox" name="state" value="NC"><label for="state">North Carolina</label></li>
+            <li><input type="checkbox" name="state" value="ND"><label for="state">North Dakota</label></li>
+            <li><input type="checkbox" name="state" value="OH"><label for="state">Ohio</label></li>
+            <li><input type="checkbox" name="state" value="OK"><label for="state">Oklahoma</label></li>
+            <li><input type="checkbox" name="state" value="OR"><label for="state">Oregon</label></li>
+            <li><input type="checkbox" name="state" value="PA"><label for="state">Pennsylvania</label></li>
+            <li><input type="checkbox" name="state" value="RI"><label for="state">Rhode Island</label></li>
+            <li><input type="checkbox" name="state" value="SC"><label for="state">South Carolina</label></li>
+            <li><input type="checkbox" name="state" value="SD"><label for="state">South Dakota</label></li>
+            <li><input type="checkbox" name="state" value="TN"><label for="state">Tennessee</label></li>
+            <li><input type="checkbox" name="state" value="TX"><label for="state">Texas</label></li>
+            <li><input type="checkbox" name="state" value="UT"><label for="state">Utah</label></li>
+            <li><input type="checkbox" name="state" value="VT"><label for="state">Vermont</label></li>
+            <li><input type="checkbox" name="state" value="VA"><label for="state">Virginia</label></li>
+            <li><input type="checkbox" name="state" value="WA"><label for="state">Washington</label></li>
+            <li><input type="checkbox" name="state" value="WV"><label for="state">West Virginia</label></li>
+            <li><input type="checkbox" name="state" value="WI"><label for="state">Wisconsin</label></li>
+            <li><input type="checkbox" name="state" value="WY"><label for="state">Wyoming</label></li>
+        </ul>
+        <label for="max-results">Maximum number of results to return</label>
+        <input type="number" name="max-results" id="max-results" value="10">
+      <button type="submit" class="js-gimme-some-dogs">Submit</button>
     </form>
 
     <div id="dog-list"></div>

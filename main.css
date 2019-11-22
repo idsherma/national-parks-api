@@ -6,10 +6,29 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-h1 {
+h1, p {
   text-align: center;
 }
 
-#dog-form {
+#park-form {
   text-align: center;
+  width: 850px;
+  margin: 0 auto;
+  padding-bottom: 25px;
+}
+
+ul {
+  margin: 0;
+  padding: 15px 0;
+  list-style: none;
+}
+
+#park-form ul li {
+  display: inline-block;
+  width: 25%; 
+  margin: 5px;
+}
+
+li label {
+  padding-left: 5px;
 }
