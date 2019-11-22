@@ -11,20 +11,25 @@
 
         //sanitize our user input and create the query item
         function formatQueryParams(params) {
-            const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+            console.log(params.stateCode);
+
+            //const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+            const queryItems = Object.keys(params).map(key => key + '=' + params[key]);
             return queryItems.join('&');
         }
 
         function getParks(query, maxResults=10) {
+
             const params = {
               stateCode: query,
               limit: maxResults,
-              start: 1
+              start: 1,
+              api_key: apiKey
             };
           
             const queryString = formatQueryParams(params)
-            const url = searchURL + '?' + queryString + `&api_key=${apiKey}`;
-          
+            const url = searchURL + '?' + queryString;
+           
             console.log(url);
         }
 
@@ -35,19 +40,31 @@
 
                 let maxResultsNum = $('#max-results').val();
 
-                // let statesArr = [];
+                let statesArr = [];
  
-                // $("input[name='state']:checked").each(function(){
-                //     statesArr.push($(this).val());
-                // });
+                $("input[name='state']:checked").each(function(){
+                    statesArr.push($(this).val());
+                });
 
-                let test = $( "input[name='state']:checked" ).map(function() {
-                    return this.value;
-                }).get().join();
+                // var ids = statesArr;
+                // var id_params = ids.map(function(id) {
+                //     return 'stateCode=' + id;
+                // }).join('&');
+                // var urlx = 'http://localhost/cah/blank.php?' + id_params;
+                // console.log(urlx);
+
+                const ids = statesArr;
+                const id_params = ids.map(id => {return `stateCode=${id}`;}).join('&');
+
+                console.log(id_params);
+
+                // let test = $( "input[name='state']:checked" ).map(function() {
+                //     return this.value;
+                // }).get().join();
 
                console.log(maxResultsNum);
-               console.log(test);
-               getParks(test, maxResultsNum)
+               //console.log(test);
+               getParks(statesArr, maxResultsNum)
 
             });
         }
