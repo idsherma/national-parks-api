@@ -4,43 +4,30 @@
 
         'use strict';
 
+
         const apiKey = '9gVorbcG7KE8YhWWg9bIShXVy2PkQpu4WgPrYmSy';
 
-        function getDogImage(num) {
-            let numParameter = num;
-            const URL = 'https://dog.ceo/api/breeds/image/random/';
+        let searchURL = 'https://developer.nps.gov/api/v1/parks';
 
-            const newURL = URL + numParameter;
-            console.log("number of dogs requested was" + " " + `${numParameter}`);
-
-            fetch(newURL)
-                .then(response => {
-                    return response.json()
-                })
-                .then(data => {
-                    let dogData = data.message;
-
-                    function accessDogData() {
-                        let dogArr = [];
-
-                        dogData.forEach(function (dogData, index) {
-                            console.log(dogData);
-                            dogArr.push(`<img src=${dogData}>`);
-                        });
-
-                        let newDogArr = dogArr.join(' ');
-                        return `${newDogArr}`;
-                    } 
-
-                    function render() {
-                        let dogPhotoString = accessDogData();
-                        $('#dog-list').html(dogPhotoString);
-                    }
-    
-                    render();
-                    
-                })
+        //sanitize our user input and create the query item
+        function formatQueryParams(params) {
+            const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+            return queryItems.join('&');
         }
+
+        function getParks(query, maxResults=10) {
+            const params = {
+              stateCode: query,
+              limit: maxResults,
+              start: 1
+            };
+          
+            const queryString = formatQueryParams(params)
+            const url = searchURL + '?' + queryString + `&api_key=${apiKey}`;
+          
+            console.log(url);
+        }
+
 
         function watchForm() {
             $('form').submit(event => {
@@ -48,16 +35,20 @@
 
                 let maxResultsNum = $('#max-results').val();
 
+                // let statesArr = [];
+ 
+                // $("input[name='state']:checked").each(function(){
+                //     statesArr.push($(this).val());
+                // });
 
-                let statesArr = [];
-
-                $.each($("input[name='state']:checked"), function() {
-                    statesArr.push($(this).val());
-                });
+                let test = $( "input[name='state']:checked" ).map(function() {
+                    return this.value;
+                }).get().join();
 
                console.log(maxResultsNum);
-               console.log("States selected: " + statesArr.join(", "));
-            
+               console.log(test);
+               getParks(test, maxResultsNum)
+
             });
         }
 
