@@ -4,17 +4,13 @@
 
         'use strict';
 
-
         const apiKey = '9gVorbcG7KE8YhWWg9bIShXVy2PkQpu4WgPrYmSy';
 
         let searchURL = 'https://developer.nps.gov/api/v1/parks';
 
         //sanitize our user input and create the query item
         function formatQueryParams(params) {
-            console.log(params.stateCode);
-
-            //const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-            const queryItems = Object.keys(params).map(key => key + '=' + params[key]);
+            const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
             return queryItems.join('&');
         }
 
@@ -31,6 +27,39 @@
             const url = searchURL + '?' + queryString;
            
             console.log(url);
+
+            fetch(url)
+            .then(response => {
+              if (response.ok) {
+                return response.json();
+              }
+              throw new Error(response.statusText);
+            })
+            .then(stateData => displayResults(stateData))
+            .catch(err => {
+              $('#js-error-message').text(`Something went wrong: ${err.message}`);
+            });
+        }
+
+        function displayResults(stateData) {
+                //console.log(stateData.data.length);
+                // if there are previous results, remove them
+                $('#results-list').empty();
+
+                // iterate through the items array
+                for (let i = 0; i < stateData.data.length; i++){
+
+                    $('#results-list').append(
+                    `<li>
+                    <h3>${stateData.data[i].fullName}</h3>
+                    <p>State (testing): ${stateData.data[i].states}</p>
+                    <p>${stateData.data[i].description}</p>
+                    <span>URL: <a href='${stateData.data[i].url}' target="_blank">${stateData.data[i].url}</a></span>
+                    </li>`
+                )};
+
+                // display the results section  
+                $('#results').removeClass('hidden');
         }
 
 
@@ -42,29 +71,19 @@
 
                 let statesArr = [];
  
-                $("input[name='state']:checked").each(function(){
-                    statesArr.push($(this).val());
-                });
+                if($("input[name='state']").is(":checked")){
 
-                // var ids = statesArr;
-                // var id_params = ids.map(function(id) {
-                //     return 'stateCode=' + id;
-                // }).join('&');
-                // var urlx = 'http://localhost/cah/blank.php?' + id_params;
-                // console.log(urlx);
+                    $("input[name='state']:checked").each(function() {
+                        statesArr.push($(this).val());
+                    });
 
-                const ids = statesArr;
-                const id_params = ids.map(id => {return `stateCode=${id}`;}).join('&');
+                } else if($("input[name='state']").is(":not(:checked)")) {
+                    alert('Input can not be left blank');
+                    return;
+                }
 
-                console.log(id_params);
-
-                // let test = $( "input[name='state']:checked" ).map(function() {
-                //     return this.value;
-                // }).get().join();
-
-               console.log(maxResultsNum);
-               //console.log(test);
                getParks(statesArr, maxResultsNum)
+               $('#park-form')[0].reset();
 
             });
         }

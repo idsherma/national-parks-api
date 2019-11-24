@@ -6,7 +6,7 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-h1, p {
+h1, h2, p {
   text-align: center;
 }
 
@@ -31,4 +31,21 @@ ul {
 
 li label {
   padding-left: 5px;
+}
+
+#results {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+#results-list li h3, #results-list li p {
+  text-align: left;
+} 
+
+.error-message {
+  color: red;
+}
+
+.hidden {
+  display: none;
 }

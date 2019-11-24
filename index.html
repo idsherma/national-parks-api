@@ -70,10 +70,16 @@
         </ul>
         <label for="max-results">Maximum number of results to return</label>
         <input type="number" name="max-results" id="max-results" value="10">
-      <button type="submit" class="js-gimme-some-dogs">Submit</button>
+      <button type="submit">Submit</button>
     </form>
 
-    <div id="dog-list"></div>
+    <p id="js-error-message" class="error-message"></p>
+    
+    <section id="results" class="hidden">
+      <h2>Search results</h2>
+      <ul id="results-list">
+      </ul>
+    </section>
   </div>
 
   <!-- PAGE JAVASCRIPT -->
