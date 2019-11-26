@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
@@ -69,7 +68,13 @@
             <li><input type="checkbox" name="state" value="WY"><label for="state">Wyoming</label></li>
         </ul>
         <label for="max-results">Maximum number of results to return</label>
-        <input type="number" name="max-results" id="max-results" value="10">
+        <select name="max-results" id="max-results" required="">
+          <option value="10" selected="">10</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+          <option value="40">40</option>
+          <option value="50">50</option>
+        </select>
       <button type="submit">Submit</button>
     </form>
 

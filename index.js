@@ -43,6 +43,7 @@
 
         function displayResults(stateData) {
                 //console.log(stateData.data.length);
+
                 // if there are previous results, remove them
                 $('#results-list').empty();
 
@@ -52,7 +53,6 @@
                     $('#results-list').append(
                     `<li>
                     <h3>${stateData.data[i].fullName}</h3>
-                    <p>State (testing): ${stateData.data[i].states}</p>
                     <p>${stateData.data[i].description}</p>
                     <span>URL: <a href='${stateData.data[i].url}' target="_blank">${stateData.data[i].url}</a></span>
                     </li>`
@@ -68,7 +68,7 @@
                 event.preventDefault();
 
                 let maxResultsNum = $('#max-results').val();
-
+                console.log(maxResultsNum);
                 let statesArr = [];
  
                 if($("input[name='state']").is(":checked")){
